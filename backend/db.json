@@ -1,0 +1,60 @@
+{
+  "posts": [
+    {
+      "title": "test3",
+      "content": "test3",
+      "author": "admin@gmail.com",
+      "completed": false,
+      "id": 4
+    },
+    {
+      "title": "test4",
+      "content": "test4",
+      "author": "admin@gmail.com",
+      "completed": false,
+      "id": 5
+    },
+    {
+      "title": "test5",
+      "content": "test5",
+      "author": "admin@gmail.com",
+      "completed": false,
+      "id": 6
+    },
+    {
+      "title": "test6",
+      "content": "test6",
+      "author": "admin@gmail.com",
+      "id": 7
+    },
+    {
+      "title": "test7",
+      "content": "test7",
+      "author": "admin@gmail.com",
+      "completed": false,
+      "id": 8
+    }
+  ],
+  "users": [
+    {
+      "email": "paul@test.com",
+      "password": "admintest",
+      "id": 1
+    },
+    {
+      "email": "test@test.net",
+      "password": "$2a$10$YpIJwlVCjouYaxvQnELc6uTtRKRc9I6vUEtO1qYuFU9PgyO4/nPiS",
+      "id": 2
+    },
+    {
+      "email": "admin",
+      "password": "admin",
+      "id": 3
+    },
+    {
+      "email": "admin@gmail.com",
+      "password": "$2a$10$KLSjuIIdoSCwVEUdtLekmuYgBNcxDMHZHPOz7ZIrhPBwHkygbXfa6",
+      "id": 4
+    }
+  ]
+}

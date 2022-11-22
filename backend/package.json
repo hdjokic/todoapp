@@ -1,0 +1,28 @@
+{
+    "name": "backend",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "node ./bin/www",
+        "dev": "nodemon ./bin/www"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "bcrypt": "^5.1.0",
+        "cookie-parser": "^1.4.6",
+        "dotenv": "^16.0.3",
+        "ejs": "^3.1.8",
+        "express": "^4.18.2",
+        "jsonwebtoken": "^8.5.1",
+        "mongoose": "^6.7.2",
+        "morgan": "^1.10.0",
+        "nodemon": "^2.0.20",
+        "webpack-dev-server": "^4.11.1"
+    },
+    "devDependencies": {
+        "json-server": "^0.17.1",
+        "json-server-auth": "^2.1.0"
+    }
+}
