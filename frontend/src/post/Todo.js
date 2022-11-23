@@ -36,7 +36,7 @@
       url: `post/${_id}`,
       method: "put",
       headers: { Authorization: `${state.user.access_token}` },
-      data:{_id, completed},
+      data:{completed},
     }));
   
     // useEffect(togglePost, []);
@@ -62,8 +62,8 @@
           <form>
             <input
               type="checkbox"
-              checked={!!completed}
-              onChange={() => togglePost({_id})}
+              checked={completed}
+              onChange={() => {togglePost(_id, !completed);dispatch({ type: "TOGGLE_TODO", id:_id});}}
               // name="Completed"
               // type="checkbox"
               // // complete={complete}

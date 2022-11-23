@@ -16,12 +16,13 @@ function userReducer(state, action) {
 function postReducer(state, action) {
   switch (action.type) {
     case "CREATE_POST":
+      console.log(action);
       const newPost = {
         title: action.title,
         content: action.content,
         author: action.author,
         completed: action.completed,
-        id: action.id,
+        _id: action._id 
       };
       return [newPost, ...state];
 
@@ -36,7 +37,7 @@ function postReducer(state, action) {
 
     case 'TOGGLE_TODO':
       return state.map(todo => {
-        if (todo.id !== action.id) {
+        if (todo._id !== action.id) {
           return todo;
         }
 
