@@ -16,7 +16,7 @@ function userReducer(state, action) {
 function postReducer(state, action) {
   switch (action.type) {
     case "CREATE_POST":
-      console.log(action);
+      //console.log(action);
       const newPost = {
         title: action.title,
         content: action.content,
@@ -30,9 +30,9 @@ function postReducer(state, action) {
       return action.posts;
 
     case "DELETE_POST":
-      console.log("here");
-      console.log(state);
-      console.log(action);
+      //console.log("here");
+      //console.log(state);
+      //console.log(action);
       return state.filter((post)=>post._id !== action.id);
 
     case 'TOGGLE_TODO':

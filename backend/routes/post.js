@@ -70,7 +70,7 @@ router.delete("/:id", async function (req, res, next) {
 });
 
 router.put("/:id", async function (req, res, next){
-  console.log(req.params);
+  //console.log(req.params);
   if(req.params.id){
     const post = await Post.findOne().where("_id").equals(req.params.id).exec();
     console.log(post);

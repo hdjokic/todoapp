@@ -6,7 +6,7 @@ import { useContext } from "react";
 export default function PostList() {
   const { state } = useContext(StateContext);
   const { posts } = state;
-  console.log(posts);
+  //console.log(posts);
   return (
      <div>
       <div>

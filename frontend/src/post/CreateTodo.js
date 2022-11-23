@@ -8,7 +8,7 @@ export default function CreatePost() {
   const [content, setContent] = useState("");
   const [completed, setCompleted] = useState(false);
   const [error, setError] = useState(false);
-  console.log(completed);
+  //console.log(completed);
 
   const { state, dispatch } = useContext(StateContext);
   const { user } = state;
@@ -21,7 +21,7 @@ export default function CreatePost() {
     data: { title, content, completed}, //completed
     
   }));
-  console.log(completed);
+  //console.log(completed);
   
 
   useEffect(() => {
@@ -41,7 +41,7 @@ export default function CreatePost() {
       });
     }
   }, [post]);
-  console.log(completed);
+  //console.log(completed);
 
 
   return (
@@ -49,7 +49,7 @@ export default function CreatePost() {
       onSubmit={(e) => {
         
         e.preventDefault();
-        console.log(completed);
+        //console.log(completed);
         createPost({ title, content, author: user.username, completed }); //completed
       }}
       

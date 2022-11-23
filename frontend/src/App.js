@@ -51,7 +51,7 @@ function App() {
       
     }
   }, [posts]);
-  console.log(posts);
+  //console.log(posts);
    
   return (
     <div>
