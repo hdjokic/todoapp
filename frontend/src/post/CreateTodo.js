@@ -7,6 +7,7 @@ export default function CreatePost() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [completed, setCompleted] = useState(false);
+  const [dateCompleted, setDate] = useState("");
   const [error, setError] = useState(false);
   //console.log(completed);
 
@@ -14,14 +15,14 @@ export default function CreatePost() {
   const { user } = state;
 
 
-  const [post, createPost] = useResource(({ title, content, author, completed }) => ({ //completed
+  const [post, createPost] = useResource(({ title, content, author, completed, dateCompleted }) => ({ //completed
     url: "post",
     method: "post",
     headers: { Authorization: `${state.user.access_token}` },
-    data: { title, content, completed}, //completed
+    data: { title, content, completed, dateCompleted}, //completed
     
   }));
-  //console.log(completed);
+  //console.log(dateCompleted);
   
 
   useEffect(() => {
@@ -36,12 +37,13 @@ export default function CreatePost() {
         content: post.data.content,
         author: post.data.author,
         completed: post.data.completed,
-        date1:Date(),
+        dateCompleted:post.data.dateCompleted,
         _id: post.data._id,
       });
     }
   }, [post]);
-  //console.log(completed);
+  //console.log(title);
+  //console.log(dateCompleted);
 
 
   return (
@@ -50,7 +52,7 @@ export default function CreatePost() {
         
         e.preventDefault();
         //console.log(completed);
-        createPost({ title, content, author: user.username, completed }); //completed
+        createPost({ title, content, author: user.username, completed, dateCompleted }); //completed
       }}
       
       
@@ -75,6 +77,12 @@ export default function CreatePost() {
         onChange={(event) => setCompleted(event.target.value)}
        
       />
+      <div
+        value={dateCompleted}
+        onChange={(event) => setDate(event.target.value)}
+       
+      />
+
       <textarea
         value={content}
         onChange={(event) => setContent(event.target.value)}

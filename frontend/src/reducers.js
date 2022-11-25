@@ -22,7 +22,8 @@ function postReducer(state, action) {
         content: action.content,
         author: action.author,
         completed: action.completed,
-        _id: action._id 
+        _id: action._id,
+        dateCompleted: action.dateCompleted
       };
       return [newPost, ...state];
 
@@ -40,11 +41,21 @@ function postReducer(state, action) {
         if (todo._id !== action.id) {
           return todo;
         }
+        if(todo.completed){
+          return {
+            ...todo,
+            completed: !todo.completed,
+            dateCompleted: null,
+          };
+        }else{
+          return {
+            ...todo,
+            completed: !todo.completed,
+            dateCompleted: Date(),
+          };
 
-        return {
-          ...todo,
-          completed: !todo.completed
-        };
+        }
+        
       });
       
     default:

@@ -9,7 +9,7 @@
   import { BrowserRouter, Routes, Route } from "react-router-dom";
   
   
-  export default function Post({ title, content, author, date1, _id, completed }) {
+  export default function Post({ title, content, author, date1, _id, completed, dateCompleted }) {
     var [completedDate, setDateCompleted] = useState("");
     
     
@@ -32,11 +32,11 @@
 
     //TOGGLE_POST
 
-     const [_, togglePost] = useResource((_id, completed) => ({
+     const [_, togglePost] = useResource((_id, completed, dateCompleted) => ({
       url: `post/${_id}`,
       method: "put",
       headers: { Authorization: `${state.user.access_token}` },
-      data:{completed},
+      data:{completed, dateCompleted},
     }));
   
     // useEffect(togglePost, []);
@@ -56,14 +56,14 @@
         <i>
           Written by <b>{author}</b>
           <br />
-          Created on: {date1} .
+          Completed on: {dateCompleted}
         </i>
         <div>
           <form>
             <input
               type="checkbox"
               checked={completed}
-              onChange={() => {togglePost(_id, !completed);dispatch({ type: "TOGGLE_TODO", id:_id});}}
+              onChange={() => {togglePost(_id, !completed, dateCompleted);dispatch({ type: "TOGGLE_TODO", id:_id});}}
               // name="Completed"
               // type="checkbox"
               // // complete={complete}

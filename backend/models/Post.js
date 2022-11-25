@@ -7,6 +7,7 @@ const PostSchema = new Schema({
   content: { type: String, required: true },
   author: { type: Schema.Types.ObjectId, ref: "User" },
   completed: {type: Boolean, required:true},
+  dateCompleted: {type: String},
 });
 
 

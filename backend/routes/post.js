@@ -29,6 +29,7 @@ router.post("/", async function (req, res) {
     content: req.body.content,
     author: req.payload.id,
     completed: req.body.completed,
+    dateCompleted: req.body.dateCompleted,
   });
   return post
     .save()
@@ -39,6 +40,7 @@ router.post("/", async function (req, res) {
         content: savedPost.content,
         author: savedPost.author,
         completed: savedPost.completed,
+        dateCompleted: savedPost.dateCompleted,
       });
     })
     .catch((error) => {
@@ -73,15 +75,29 @@ router.put("/:id", async function (req, res, next){
   //console.log(req.params);
   if(req.params.id){
     const post = await Post.findOne().where("_id").equals(req.params.id).exec();
+    console.log("#### POST #####:")
     console.log(post);
+    console.log(post.completed)
+    console.log(post.dateCompleted)
     if(post) {
-      post.updateOne({completed: req.body.completed}, function(err, result) {
-        if (err) {
-          return res.status(500).json({ error: "Something is went wrong." });
-        } else {
-          return res.status(200).json({message: "Success."});
-        }
-      });
+      if(req.body.completed){
+        post.updateOne({completed: req.body.completed,dateCompleted:Date()}, function(err, result) {
+          if (err) {
+            return res.status(500).json({ error: "Something is went wrong." });
+          } else {
+            return res.status(200).json({message: "Success."});
+          }
+        });
+      }else{
+        post.updateOne({completed: req.body.completed,dateCompleted:null}, function(err, result) {
+          if (err) {
+            return res.status(500).json({ error: "Something is went wrong." });
+          } else {
+            return res.status(200).json({message: "Success."});
+          }
+        });
+
+      }
   }
 
   }else{
